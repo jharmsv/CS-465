@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
 // import the controllers to be routed
 const tripsController = require('../controllers/trips');
@@ -63,12 +63,13 @@ verified) => {
 router.route('/register').post(authController.register);
 router.route('/login').post(authController.login);
 
-/* GET /api/trips - list all trips */
+// Define route for trips endpoint
 router
     .route('/trips')
     .get(tripsController.tripsList)
     .post(authenticateJWT, tripsController.tripsAddTrip);
 
+// GET Method routes tripFindByCode - requires a param
 router
     .route('/trips/:tripCode')
     .get(tripsController.tripsFindByCode)

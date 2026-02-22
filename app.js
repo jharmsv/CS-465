@@ -38,6 +38,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
+// Enable CORS
+app.use('/api', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:4200'); // Update with your Angular app's URL
+  res.header('Access-Control-Allow-Methods', 'Origin', 'X-Requested-With', 'Content-Type', 'Accept');
+  next();
+});
 
 // Enablr cors
 app.use('/api', function(req, res, next) {
