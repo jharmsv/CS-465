@@ -127,54 +127,12 @@ const tripsUpdateTrip = async (req, res) => {
     // console.log(q);
 };
 
-// const tripsAddTrip = async (req, res) => {
-//     const newTrip = newTrip({
-//         code: req.body.code,
-//         name: req.body.name,
-//         length: req.body.length,
-//         start: req.body.start,
-//         resort: req.body.resort,
-//         perPerson: req.body.perPerson,
-//         image: req.body.image,
-//         description: req.body.description
-//     });
-
-//     const q = await newTrip.save();
-
-//     if (!q) {
-//         return res
-//             .status(400)
-//             .json(err);
-//     } else {
-//         return res
-//             .status(201)
-//             .json(q);
-//     }
-
-//     console.log(q);
-// };
-
 const tripsAddTrip = async (req, res) => {
-    try {
-        const trip = await Trip.create({
-            code: req.body.code,
-            name: req.body.name,
-            length: req.body.length,
-            start: req.body.start,
-            resort: req.body.resort,
-            perPerson: req.body.perPerson,
-            image: req.body.image,
-            description: req.body.description
-        });
-
-        return res
-            .status(201)
-            .json(trip);
-    } catch (err) {
-        return res
-            .status(400)
-            .json(err);
-    }
+  try {
+    // add trip logic
+  } catch (err) {
+    res.status(400).json(err);
+  }
 };
 
 // PUT: /trips/:tripCode - Adds a new Trip 
